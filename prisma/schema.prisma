@@ -1,0 +1,48 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+model Customer {
+  id String @id @default(uuid())
+  name String
+  email String
+  orders Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id String @id @default(uuid())
+  total Int
+  items OrderItem[]
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customerId String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id String @id @default(uuid())
+  name String
+  price Int
+  orderItems OrderItem[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+  id String @id @default(uuid())
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId String @unique
+  product Product @relation(fields: [productId], references: [id])
+  productId String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
