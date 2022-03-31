@@ -55,4 +55,4 @@ the current project structure is:
 
 to a better debugging and testing of the api, we recomend to use Insomnia importing the already made collection:
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=REST%20API%20Template&uri=https%3A%2F%2Fwww.github.com%2Fgabsdotco%2Frest%2Fblob%2Fmain%2Finsomnia.json)
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=REST%20API%20Template&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fgabsdotco%2Frest%2Fmain%2Finsomnia.json)
